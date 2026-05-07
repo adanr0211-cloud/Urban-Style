@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Estilo Urbano - El arte de la precisión</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#849495",
+                        "surface-container": "#1e2020",
+                        "on-primary-fixed": "#002022",
+                        "on-secondary-fixed": "#001a41",
+                        "primary-fixed": "#74f5ff",
+                        "on-error": "#690005",
+                        "surface": "#121414",
+                        "surface-dim": "#121414",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-primary-container": "#006a71",
+                        "surface-container-highest": "#333535",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "tertiary": "#fff6e4",
+                        "primary-container": "#00f2ff",
+                        "on-secondary": "#002e69",
+                        "surface-variant": "#333535",
+                        "on-error-container": "#ffdad6",
+                        "background": "#121414",
+                        "surface-container-high": "#282a2b",
+                        "inverse-on-surface": "#2f3131",
+                        "surface-container-lowest": "#0c0f0f",
+                        "on-secondary-fixed-variant": "#004493",
+                        "inverse-primary": "#00696f",
+                        "outline-variant": "#3a494b",
+                        "tertiary-fixed": "#ffe173",
+                        "surface-bright": "#37393a",
+                        "primary-fixed-dim": "#00dbe7",
+                        "on-secondary-container": "#00285c",
+                        "surface-tint": "#00dbe7",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#3b2f00",
+                        "on-primary": "#00363a",
+                        "inverse-surface": "#e2e2e2",
+                        "on-background": "#e2e2e2",
+                        "primary": "#e1fdff",
+                        "tertiary-container": "#fed83a",
+                        "on-surface": "#e2e2e2",
+                        "tertiary-fixed-dim": "#e8c423",
+                        "on-tertiary-container": "#725e00",
+                        "on-primary-fixed-variant": "#004f54",
+                        "on-surface-variant": "#b9cacb",
+                        "surface-container-low": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#221b00",
+                        "secondary": "#adc6ff",
+                        "secondary-container": "#4b8eff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "96px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "display": [
+                            "Hanken Grotesk"
+                        ],
+                        "body-md": [
+                            "Inter"
+                        ],
+                        "headline-lg": [
+                            "Hanken Grotesk"
+                        ],
+                        "headline-md": [
+                            "Hanken Grotesk"
+                        ],
+                        "label-caps": [
+                            "JetBrains Mono"
+                        ],
+                        "body-lg": [
+                            "Inter"
+                        ]
+                    },
+                    "fontSize": {
+                        "display": [
+                            "64px",
+                            {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "headline-md": [
+                            "24px",
+                            {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "label-caps": [
+                            "12px",
+                            {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant flat no shadows">
+        <div class="flex justify-between items-center px-margin-desktop py-gutter max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md font-bold text-primary tracking-wider uppercase">
+                Estilo Urbano
+            </div>
+            <div class="hidden md:flex items-center gap-gutter">
+                <a class="text-on-surface font-label-caps text-label-caps hover:text-primary transition-all duration-300"
+                    href="#servicios">Servicios</a>
+                <a class="text-on-surface font-label-caps text-label-caps hover:text-primary transition-all duration-300"
+                    href="#barberos">Barberos</a>
+                <a class="text-on-surface font-label-caps text-label-caps hover:text-primary transition-all duration-300"
+                    href="#galeria">Galería</a>
+                <a class="text-on-surface font-label-caps text-label-caps hover:text-primary transition-all duration-300"
+                    href="#contacto">Contacto</a>
+            </div>
+            <button
+                class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-gutter py-unit active:scale-95 transition-transform hover:bg-primary-fixed">
+                Reservar Turno
+            </button>
+        </div>
+    </nav>
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen flex items-center justify-center pt-section-gap">
+        <div class="absolute inset-0 z-0">
+            <img alt="Barbershop Background"
+                class="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale"
+                data-alt="A cinematic, high-end barbershop interior bathed in dramatic, moody lighting. The scene features a sleek, vintage barber chair in the center, subtly illuminated by warm ambient light that highlights metallic gold accents against deep charcoal walls. The atmosphere is exclusive, precise, and masculine, evoking a sanctuary-like experience consistent with an industrial luxury aesthetic."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjMch9x8m2OzBv3aJ_a00eloGAeFmbeSvfzz21t5yzGp6P_Kv_POC-eD6Q4UFMx0HHVR0lLWn2uFO6du-gUCsj279ap550RiHlfWB-E7JHWhORYgUvlchDr8ucPpxuoR3VpIgAH5b6WPe-tIhVLN4JfYp3UjWnNd1GZTpTDS0CHvf0tJMBv797r7XkMLmGDlaqspzu6hf9njE3gC7FE-gDP7JtcOenZh3rQ9hqX881KrNOoaWj6C-0zLXROrpKLLur3ln54ZZS_mTl" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+        </div>
+        <div class="relative z-10 text-center px-margin-desktop max-w-4xl mx-auto flex flex-col items-center">
+            <h1 class="font-display text-display text-on-surface mb-gutter">
+                Estilo que define la ciudad
+            </h1>
+            <div class="w-24 h-px bg-primary mb-margin-desktop"></div>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-section-gap">
+                La perfección no es un accidente. Es el resultado de la tradición, la precisión y una atención
+                inquebrantable a los detalles. Descubre la experiencia del caballero moderno.
+            </p>
+            <button
+                class="bg-primary-container text-on-primary-container font-headline-md text-headline-md uppercase tracking-widest px-section-gap py-gutter hover:bg-primary transition-colors active:scale-95">
+                Reservar turno
+            </button>
+        </div>
+    </header>
+    <!-- SERVICES SECTION -->
+    <section class="py-section-gap bg-surface-container-low border-t border-outline-variant" id="servicios">
+        <div class="max-w-container-max mx-auto px-margin-desktop">
+            <div class="mb-section-gap flex flex-col items-start">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-unit">Servicios de precisión</h2>
+                <div class="w-16 h-px bg-primary"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <!-- Service Card 1 -->
+                <div
+                    class="bg-surface border border-outline-variant p-gutter hover:border-primary transition-colors group">
+                    <div class="mb-gutter">
+                        <span
+                            class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">content_cut</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-unit">Corte clásico</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-gutter">Tijera y máquina con
+                        terminación a navaja.</p>
+                    <div class="font-headline-lg text-[24px] text-primary">$35</div>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="bg-surface border border-primary p-gutter relative group">
+                    <div
+                        class="absolute top-0 right-0 bg-primary-container text-on-primary-container font-label-caps text-[10px] px-unit py-unit">
+                        ÉLITE</div>
+                    <div class="mb-gutter">
+                        <span
+                            class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">face</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-unit">Corte + barba</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-gutter">El servicio completo para un
+                        look impecable.</p>
+                    <div class="font-headline-lg text-[24px] text-primary">$55</div>
+                </div>
+                <!-- Service Card 3 -->
+                <div
+                    class="bg-surface border border-outline-variant p-gutter hover:border-primary transition-colors group">
+                    <div class="mb-gutter">
+                        <span
+                            class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">water_drop</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-unit">Afeitado navaja</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-gutter">Ritual tradicional con toalla
+                        caliente.</p>
+                    <div class="font-headline-lg text-[24px] text-primary">$40</div>
+                </div>
+                <!-- Service Card 4 -->
+                <div
+                    class="bg-surface border border-outline-variant p-gutter hover:border-primary transition-colors group">
+                    <div class="mb-gutter">
+                        <span
+                            class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">architecture</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-unit">Diseño de barba</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-gutter">Perfilado milimétrico y
+                        tratamiento hidratante.</p>
+                    <div class="font-headline-lg text-[24px] text-primary">$30</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BARBERS SECTION -->
+    <section class="py-section-gap bg-background border-t border-outline-variant" id="barberos">
+        <div class="max-w-container-max mx-auto px-margin-desktop">
+            <div class="mb-section-gap flex flex-col items-center">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-unit">Master Barber</h2>
+                <div class="w-16 h-px bg-primary"></div>
+            </div>
+            <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+                <div class="w-64 h-64 rounded-full border border-primary p-unit mb-gutter">
+                    <img alt="Barber" class="w-full h-full object-cover rounded-full grayscale"
+                        data-alt="A striking portrait of a professional male barber, sharply dressed in a dark vest and crisp white shirt. He has styled hair and a neatly trimmed beard, staring confidently into the camera. The background is a moody, out-of-focus charcoal wall, reflecting the modern gentleman aesthetic and industrial luxury vibe of an elite barbershop."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0zwdVmObyZ72yC2V9FRiX6qEUeEAFy66soVHLdT5ZLw7qzRZT-0B4_R3fZJu2curNejh7S3kLacG_L7QbKk6empS0GMFI5m4qj603Jy_O-rMkxvJUUrn0jQPG5XHvNEk-fqxDPoimJyoU8NHFZVa-opOWucfja-KnUpaY6iSw-uCbwJutolxu2IWPEq7_iRpo3sw9mWMgQ89pEUPk765MRulTAvngdSCzVikqBmgi9pJayNCIuW8e18j4gVtBALwPSg0zsZ53Efgm" />
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface">Julián 'Urban' Rivas</h3>
+                <p class="font-label-caps text-label-caps text-primary mt-unit tracking-widest">Fundador y Master Barber
+                </p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mt-gutter">
+                    Con más de una década perfeccionando el arte del estilo urbano, Julián ha redefinido lo que
+                    significa un corte clásico en el contexto moderno. Su técnica impecable y visión estética lo
+                    convierten en el referente del grooming en la ciudad.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- GALLERY SECTION -->
+    <section class="py-section-gap bg-surface-container-low border-t border-outline-variant" id="galeria">
+        <div class="max-w-container-max mx-auto px-margin-desktop">
+            <div class="mb-section-gap flex flex-col items-start">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-unit">El arte en práctica</h2>
+                <div class="w-16 h-px bg-primary"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-unit">
+                <div class="aspect-square bg-surface">
+                    <img alt="Gallery cut 1"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        data-alt="Close-up side profile of a highly detailed, sharp skin fade haircut on a male client. The focus is strictly on the precision of the blend and the crisp line-up at the temple. Shot in black and white with high contrast, against a pure dark background to emphasize the geometry of the cut, aligning perfectly with industrial minimalism."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5TsQKbU5HmbO8gOpY6WE_3YXWzRJh4uDshguBMsYt_MMlRPcQmHx8Z4kpMSTq506z0eqsVisJDQ6QsR3CfpDFhz3KqIJH9NTpYZ_GFoLDfP3u_AMOw_B7XCP4HmVXupqAm2d9yZFtfVokTqQYgaw8mxi2WEFHDikZ6W_5gSsdDQpyp4OYC2ftv-oz14I9jXsDsTvJQeDndWXN-NYJIYU45FQ5ak339CsBwZYa0bKyFqV6dQKpTKWfzSqUossu4iZ_0NlGHJ-Fq2zP" />
+                </div>
+                <div class="aspect-[4/5] bg-surface row-span-2">
+                    <img alt="Gallery shave"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        data-alt="A meticulously groomed man receiving a hot towel shave with a straight razor. The barber's hands are visible, executing the technique with care. The scene is lit with dramatic directional light from the side, casting deep shadows that enhance the luxurious, old-school gentleman vibe within a contemporary, dark-themed barbershop setting."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDzJVwK7PGwCb_y_Z7SiiuSjaVCkCNU4TWYS-MaDleDRJxc8BDYVnmQO-4X1lFXgjNlcpQVQAh_0MrJVP1AeQy8TiCX3PS3Hjd22nFNjC21AkxDOIkQXfGijfk8Xq_4vFMIaYEcMcnzGx_cGfsk5OIIQHV4_Zi9Ij4bEX2gCbqQJLKrgFbXXDlAbEEaMI_dUea3wxKB20DsW_Au-SaOhP9uIsnTEf0JUCwvyTliKqW3z11ZWtBrZMWvIIR1EopoW_1A_Kv5TyuST3_" />
+                </div>
+                <div class="aspect-square bg-surface">
+                    <img alt="Gallery beard"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        data-alt="Detail shot of a perfectly shaped and oiled beard on a male model. The focus is on the sharp jawline contour and the texture of the facial hair. The aesthetic is stark, moody, and hyper-masculine, utilizing stark lighting to separate the subject from the inky black void behind him, matching the brand's sharp gold and charcoal identity."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5K3LiCbY7Sx6lSA-7uQoCa7rw9a0eEX3sFfy5pDOSy4js74ayK4qZ_JywDTWr9WHKladSfxXTlVdn0Xt9wM2Tj93zVFnH7DxO3Kz1VnMHOPSTwr0TU9eIpoCPDbX1L2tv0b_lkyJHbEcAhFJzMlFPOBdJJODfXZeUYaVLqukRJLSfluzLE2bpIwyKxmQutBzAQeC9NMPGLcbZjLp29z1CgYAFgAOqG48dsl41KjBzaC1cCne46L4y2PC9Nd6q0lLcP3wpKvxcy5Cv" />
+                </div>
+                <div class="aspect-square bg-surface">
+                    <img alt="Gallery cut 2"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        data-alt="A modern textured crop haircut featuring sharp, geometric fringe, viewed from an angle. The contrast between the dark hair and pale skin is emphasized by the monochrome filter. The image embodies contemporary precision and high-end styling, sitting perfectly within a grid layout designed for an elite, minimalist dark-mode portfolio."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs_T3tHWuRpqM2xBqLtKtlYGHUTlH-QeMD3iDpEe9QJWrdZzDEEuUiIY7dkxY2hLIhjMJxH_6HjcwhPoEGr2XRl2ScS7hJM4AJjPnY0aPWFytdocHfJZOfD7sYo9e71ij-fm6kQu9my3DkzMuXf8zvHXrsjyqxU481RyafiGgB-2C_uyhNMbbFsA7m1xZjaD9OZXnBqUpTvYPUx0xnPb36KV0hM6xnSZzB3oQSYFOhZvgm4qto25iv0JtOU_-bxI6ROu5HykGoIQFc" />
+                </div>
+                <div class="aspect-square bg-surface">
+                    <img alt="Gallery tools"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                        data-alt="Close up of high-end, metallic gold barbering tools—specifically a straight razor and styling shears—resting on a dark slate surface. The lighting catches the reflective edges of the metal, creating a sense of sharpness and industrial luxury. The composition is highly intentional, reflecting the brand's 'sharp gold' visual tokens."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKk8oLsXGNp7BhTOGJO9RrvRGjlLc784h9Uxz9IsPeFQUEFGy032EbGJ0ypwqsPtRlscs2aeOX8p1QlN_18eFW8ogX4XjeoanKDvOUbOE1CeNxevcUQw_bUOJPDERP_57El_32ch3q8hiKnvsZoH3EmPGVzbCxTKIPDZOtHi5dAlrPHmN5e1uGVqLjlE2IOwehFzHtfie4qk1TUZs82jDxFaHI9bBrfMSCxIR_VuZyo2iCZ2pm6pFkH3s5Q4Ovwc2QzBZzLlnLTcjr" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BOOKING SECTION -->
+    <section class="py-section-gap bg-background border-t border-primary relative overflow-hidden" id="contacto">
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiM0ZDQ2MzciLz48L3N2Zz4=')] opacity-20">
+        </div>
+        <div class="max-w-3xl mx-auto px-margin-desktop text-center relative z-10">
+            <span class="material-symbols-outlined text-primary text-6xl mb-gutter">calendar_month</span>
+            <h2 class="font-display text-display text-on-surface mb-gutter">Asegura tu lugar</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-section-gap">
+                La excelencia requiere tiempo. Agenda tu cita con anticipación para garantizar la mejor experiencia.
+            </p>
+            <a class="inline-flex items-center gap-unit bg-transparent border border-primary text-primary font-headline-md text-[18px] uppercase tracking-widest px-section-gap py-gutter hover:bg-primary hover:text-on-primary-container transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">chat</span>
+                Contactar por WhatsApp
+            </a>
+        </div>
+    </section>
+    <!-- LOCATION SECTION -->
+    <section class="py-section-gap bg-surface-container-low border-t border-outline-variant">
+        <div
+            class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-section-gap items-center">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-unit">Nuestra sede</h2>
+                <div class="w-16 h-px bg-primary mb-margin-desktop"></div>
+                <div class="flex items-start gap-gutter mb-gutter">
+                    <span class="material-symbols-outlined text-primary">location_on</span>
+                    <div>
+                        <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-unit">Dirección</h4>
+                        <p class="font-body-lg text-body-lg text-on-surface">Av. Libertad 1245<br />Distrito Financiero
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-outline-variant/30 my-gutter"></div>
+                <div class="flex items-start gap-gutter">
+                    <span class="material-symbols-outlined text-primary">schedule</span>
+                    <div>
+                        <h4 class="font-label-caps text-label-caps text-on-surface-variant mb-unit">Horarios</h4>
+                        <p class="font-body-lg text-body-lg text-on-surface">Lunes a Sábado<br />9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="h-96 bg-surface border border-outline-variant p-unit grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img alt="Ubicación en mapa" class="w-full h-full object-cover"
+                    data-alt="A stylized, minimalist map visualization of an urban financial district, rendered in dark mode styling. The streets are depicted in deep charcoal and subtle grey tones, with a single, sharp gold location pin marking the exact spot of the barbershop. The map looks high-tech yet elegant, avoiding bright colors to maintain the strict industrial luxury aesthetic of the site."
+                    data-location="Distrito Financiero, City Map"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs6zhx7m85TWNTX7uOJ-EHi-8FMUkXIsAvd6kAMeXLOR0DJOinq0lGGJeWxyrTfRDwKNm0UyoSh2jXtyrWpSNfDo9fyvAjryGNQJ4SvpVoZSTKHPwdMY6s2ibuVBG9Yl1ilpaiuUU8OOllGF6MTF7T7z4RP4mJwolblcLYRSCIPF_8edT8e_SvMDbn66nOUkwnRFXYSb1GEgIQcYWncPtD9gwy1ELJe_sZnT2QmKM_ebU9Zu4L7jaNMXkMe60lVwS6ADpKZIItbX49" />
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full py-section-gap bg-surface-container-lowest border-t border-primary flat no shadows">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+            <div class="font-headline-md text-headline-md font-bold text-primary">
+                Estilo Urbano
+            </div>
+            <div class="font-body-md text-body-md text-on-surface-variant">
+                © 2024 Estilo Urbano. El arte de la precisión.
+            </div>
+            <div class="flex items-center gap-gutter">
+                <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors"
+                    href="#">Privacidad</a>
+                <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors"
+                    href="#">Términos</a>
+                <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors"
+                    href="#">Ubicación</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

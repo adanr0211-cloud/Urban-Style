@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Montoya — Embutidos Artesanales</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --cream:#F6EFE0;
+  --parchment:#EDE2C8;
+  --warm-white:#FBF7EE;
+  --burgundy:#6B1A1A;
+  --wine:#8B2635;
+  --ruby:#A8384A;
+  --gold:#C4923A;
+  --gold-light:#DDB96E;
+  --brown:#3D2314;
+  --mahogany:#5C2E1A;
+  --text:#2C1810;
+  --muted:#7A5C40;
+  --border:#D4C4A0;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Lora',serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* grain texture overlay */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;opacity:0.6;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4rem;height:76px;
+  background:rgba(246,239,224,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:background 0.3s;
+}
+.nav-logo{
+  display:flex;flex-direction:column;align-items:center;gap:0;
+}
+.nav-logo-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;font-weight:900;letter-spacing:4px;
+  text-transform:uppercase;color:var(--burgundy);line-height:1;
+}
+.nav-logo-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.65rem;letter-spacing:6px;text-transform:uppercase;
+  color:var(--muted);margin-top:2px;
+}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.9rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color 0.2s;
+  font-weight:400;
+}
+.nav-links a:hover{color:var(--burgundy);}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-tel{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.85rem;letter-spacing:2px;color:var(--muted);
+}
+.nav-tel span{color:var(--burgundy);font-weight:600;}
+.btn-nav{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;
+  background:var(--burgundy);color:var(--cream);
+  border:none;padding:0.65rem 1.6rem;cursor:pointer;
+  transition:all 0.25s;text-decoration:none;display:inline-block;
+}
+.btn-nav:hover{background:var(--brown);transform:translateY(-1px);box-shadow:0 6px 24px rgba(107,26,26,0.25);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  padding-top:76px;
+  position:relative;overflow:hidden;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:6rem 4rem 6rem 4rem;
+  background:var(--warm-white);
+  position:relative;
+}
+.hero-left::before{
+  content:'';
+  position:absolute;top:0;right:-60px;bottom:0;width:120px;
+  background:var(--warm-white);
+  clip-path:polygon(0 0,50% 0,100% 50%,50% 100%,0 100%);
+  z-index:2;
+}
+.hero-ornament{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.7rem;letter-spacing:6px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.ornament-line{width:32px;height:1px;background:var(--gold);}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,4.5vw,4.5rem);
+  font-weight:900;line-height:1.08;
+  color:var(--brown);margin-bottom:0.5rem;
+}
+.hero-title em{
+  font-style:italic;color:var(--burgundy);
+  font-weight:400;display:block;
+}
+.hero-title-script{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:clamp(1.4rem,2.5vw,2.2rem);
+  color:var(--gold);font-weight:400;margin-bottom:2rem;
+  display:block;
+}
+.hero-desc{
+  font-size:1rem;line-height:1.8;color:var(--muted);
+  max-width:420px;margin-bottom:2.5rem;
+  font-family:'Lora',serif;
+}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
+.btn-primary{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;
+  background:var(--burgundy);color:var(--cream);
+  border:none;padding:1rem 2.4rem;cursor:pointer;
+  transition:all 0.25s;text-decoration:none;display:inline-block;
+  position:relative;
+}
+.btn-primary::after{
+  content:'';position:absolute;bottom:-3px;right:-3px;
+  inset:3px -3px -3px 3px;
+  border:1px solid var(--gold);
+  transition:all 0.25s;pointer-events:none;
+}
+.btn-primary:hover{background:var(--brown);}
+.btn-primary:hover::after{inset:0;}
+.btn-ghost{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;
+  background:transparent;color:var(--burgundy);
+  border:1px solid var(--border);padding:1rem 2rem;cursor:pointer;
+  transition:all 0.25s;text-decoration:none;display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--burgundy);background:rgba(107,26,26,0.04);}
+.hero-badges{
+  display:flex;gap:2.5rem;margin-top:3rem;
+  padding-top:2rem;border-top:1px solid var(--border);
+}
+.badge-item{}
+.badge-num{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;font-weight:700;color:var(--burgundy);display:block;
+}
+.badge-label{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.hero-right{
+  position:relative;overflow:hidden;
+  background:var(--parchment);
+}
+.hero-img-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%,rgba(139,38,53,0.15) 0%,transparent 60%),
+    radial-gradient(ellipse 100% 100% at 0% 100%,rgba(196,146,58,0.12) 0%,transparent 60%),
+    var(--parchment);
+}
+.hero-product-display{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:1rem;
+}
+.hero-product-emoji{
+  font-size:160px;
+  filter:drop-shadow(4px 8px 24px rgba(61,35,20,0.25));
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-2deg);}
+  50%{transform:translateY(-12px) rotate(2deg);}
+}
+.hero-product-tag{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.1rem;color:var(--muted);
+  letter-spacing:2px;
+}
+/* decorative label */
+.hero-label{
+  position:absolute;bottom:3rem;right:3rem;
+  width:90px;height:90px;border-radius:50%;
+  background:var(--burgundy);color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  border:3px solid var(--gold);
+  animation:spin 20s linear infinite;
+}
+.hero-label-inner{
+  font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;
+  text-align:center;line-height:1.6;
+  animation:spin 20s linear infinite reverse;
+}
+
+/* ── STRIPE ── */
+.stripe{
+  background:var(--burgundy);padding:1rem 4rem;
+  display:flex;align-items:center;gap:3rem;overflow:hidden;
+}
+.stripe-inner{
+  display:flex;gap:4rem;white-space:nowrap;
+  animation:slide 25s linear infinite;
+}
+@keyframes slide{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.stripe-item{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(246,239,224,0.7);
+  display:flex;align-items:center;gap:1rem;
+}
+.stripe-dot{color:var(--gold);font-size:1.2rem;}
+
+/* ── SECTION BASE ── */
+.section{padding:6rem 4rem;}
+.section-tag{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:0.85rem;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;display:block;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:700;color:var(--brown);
+  line-height:1.15;margin-bottom:1.5rem;
+}
+.section-title em{font-style:italic;color:var(--burgundy);}
+.section-desc{
+  font-size:0.95rem;line-height:1.8;color:var(--muted);
+  max-width:520px;
+}
+.divider{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:3rem;
+}
+.divider-line{flex:1;height:1px;background:var(--border);}
+.divider-icon{color:var(--gold);font-size:1.2rem;}
+
+/* ── NOSOTROS ── */
+.about{background:var(--warm-white);}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:6rem;align-items:center;
+}
+.about-visual{
+  position:relative;
+}
+.about-img{
+  width:100%;aspect-ratio:4/5;
+  background:var(--parchment);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:120px;
+  position:relative;overflow:hidden;
+}
+.about-img::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 30%,rgba(196,146,58,0.1) 0%,transparent 60%);
+}
+.about-corner{
+  position:absolute;top:-16px;left:-16px;
+  width:60px;height:60px;
+  border-top:3px solid var(--gold);border-left:3px solid var(--gold);
+}
+.about-corner2{
+  position:absolute;bottom:-16px;right:-16px;
+  width:60px;height:60px;
+  border-bottom:3px solid var(--gold);border-right:3px solid var(--gold);
+}
+.about-floating{
+  position:absolute;bottom:-2rem;right:-2rem;
+  background:var(--burgundy);color:var(--cream);
+  padding:1.5rem 2rem;
+  font-family:'Playfair Display',serif;
+  border:2px solid var(--gold);
+}
+.about-floating-num{font-size:2.5rem;font-weight:900;display:block;line-height:1;}
+.about-floating-text{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;opacity:0.8;font-family:'Cormorant Garamond',serif;}
+.about-text .section-desc{max-width:100%;}
+.about-values{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;
+}
+.value-item{
+  padding:1.5rem;border-left:3px solid var(--gold);
+  background:rgba(196,146,58,0.05);
+}
+.value-title{
+  font-family:'Playfair Display',serif;font-size:1rem;
+  font-weight:700;color:var(--brown);margin-bottom:0.4rem;
+}
+.value-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+
+/* ── PRODUCTOS ── */
+.products{background:var(--cream);}
+.products-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:2rem;
+}
+.product-tabs{
+  display:flex;gap:0;margin-bottom:3rem;
+  border-bottom:1px solid var(--border);
+}
+.tab{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;
+  padding:0.75rem 1.75rem;cursor:pointer;border:none;background:none;
+  color:var(--muted);position:relative;transition:color 0.2s;
+}
+.tab.active{color:var(--burgundy);}
+.tab.active::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;
+  height:2px;background:var(--burgundy);
+}
+.tab:hover{color:var(--burgundy);}
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+}
+.product-card{
+  background:var(--warm-white);
+  border:1px solid var(--border);
+  overflow:hidden;transition:all 0.35s;
+  cursor:pointer;position:relative;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(61,35,20,0.15);
+  border-color:rgba(196,146,58,0.5);
+}
+.product-badge-wrap{position:absolute;top:1rem;left:1rem;z-index:2;}
+.product-badge{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;
+  padding:0.3rem 0.8rem;display:inline-block;
+}
+.badge-artesanal{background:var(--burgundy);color:var(--cream);}
+.badge-destacado{background:var(--gold);color:var(--brown);}
+.badge-nuevo{background:var(--brown);color:var(--cream);}
+.product-img{
+  height:220px;background:var(--parchment);
+  display:flex;align-items:center;justify-content:center;
+  font-size:90px;
+  border-bottom:1px solid var(--border);
+  transition:background 0.3s;position:relative;overflow:hidden;
+}
+.product-img::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(196,146,58,0.08) 0%,transparent 70%);
+  opacity:0;transition:opacity 0.3s;
+}
+.product-card:hover .product-img::after{opacity:1;}
+.product-img span{transition:transform 0.4s;}
+.product-card:hover .product-img span{transform:scale(1.08);}
+.product-body{padding:1.5rem;}
+.product-origin{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:0.8rem;letter-spacing:2px;
+  color:var(--gold);margin-bottom:0.4rem;
+}
+.product-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:var(--brown);
+  margin-bottom:0.5rem;line-height:1.3;
+}
+.product-desc{
+  font-size:0.8rem;line-height:1.6;color:var(--muted);
+  margin-bottom:1.25rem;
+}
+.product-footer{display:flex;align-items:center;justify-content:space-between;}
+.product-price{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;color:var(--burgundy);
+}
+.product-unit{font-size:0.7rem;color:var(--muted);font-family:'Lora';font-weight:400;}
+.product-price-wrap{display:flex;flex-direction:column;}
+.add-to-cart{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;
+  background:transparent;color:var(--burgundy);
+  border:1px solid var(--border);
+  padding:0.6rem 1.2rem;cursor:pointer;transition:all 0.25s;
+}
+.add-to-cart:hover{background:var(--burgundy);color:var(--cream);border-color:var(--burgundy);}
+
+/* ── PROCESO ── */
+.process{background:var(--burgundy);padding:6rem 4rem;}
+.process .section-title{color:var(--cream);}
+.process .section-tag{color:var(--gold-light);}
+.process .section-desc{color:rgba(246,239,224,0.7);max-width:100%;}
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin-top:4rem;position:relative;
+}
+.process-grid::before{
+  content:'';
+  position:absolute;top:36px;left:10%;right:10%;
+  height:1px;background:rgba(196,146,58,0.3);
+}
+.step{padding:0 2rem;position:relative;}
+.step-num{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(246,239,224,0.08);
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-weight:700;color:var(--gold);
+  margin-bottom:1.5rem;position:relative;z-index:1;
+}
+.step-icon{font-size:1.8rem;display:block;margin-bottom:0.75rem;}
+.step-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:0.5rem;
+}
+.step-desc{font-size:0.82rem;line-height:1.7;color:rgba(246,239,224,0.6);}
+
+/* ── TESTIMONIOS ── */
+.testimonials{background:var(--warm-white);padding:6rem 4rem;}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.testi-card{
+  background:var(--cream);border:1px solid var(--border);
+  padding:2.5rem 2rem;position:relative;
+}
+.testi-quote{
+  font-size:4rem;font-family:'Playfair Display',serif;
+  color:var(--gold);opacity:0.4;position:absolute;
+  top:0.5rem;left:1.5rem;line-height:1;
+}
+.testi-text{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:0.95rem;line-height:1.8;color:var(--text);
+  margin-bottom:1.5rem;padding-top:1.5rem;
+}
+.testi-author{display:flex;align-items:center;gap:1rem;}
+.testi-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--parchment);border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+}
+.testi-name{
+  font-family:'Playfair Display',serif;font-size:0.95rem;
+  font-weight:700;color:var(--brown);display:block;
+}
+.testi-city{font-size:0.72rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.testi-stars{color:var(--gold);font-size:0.85rem;margin-bottom:0.3rem;}
+
+/* ── CTA ── */
+.cta{
+  background:var(--parchment);padding:6rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;
+}
+.cta-visual{
+  display:flex;align-items:center;justify-content:center;
+  font-size:160px;
+  filter:drop-shadow(4px 8px 24px rgba(61,35,20,0.2));
+}
+.cta-form{
+  background:var(--warm-white);
+  border:1px solid var(--border);
+  padding:3rem;position:relative;
+}
+.cta-form::before{
+  content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;
+  border:1px solid var(--gold);pointer-events:none;
+  clip-path:polygon(0 20px,20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%);
+}
+.form-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;font-weight:700;color:var(--brown);
+  margin-bottom:0.5rem;
+}
+.form-sub{font-size:0.85rem;color:var(--muted);margin-bottom:2rem;}
+.form-group{margin-bottom:1.25rem;}
+.form-label{
+  display:block;font-family:'Cormorant Garamond',serif;
+  font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:0.5rem;
+}
+.form-input,.form-select,.form-textarea{
+  width:100%;background:var(--cream);
+  border:1px solid var(--border);
+  padding:0.85rem 1rem;
+  font-family:'Lora',serif;font-size:0.9rem;color:var(--text);
+  outline:none;transition:border-color 0.2s;
+  appearance:none;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);}
+.form-textarea{resize:vertical;min-height:100px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-submit{
+  width:100%;
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.85rem;letter-spacing:4px;text-transform:uppercase;
+  background:var(--burgundy);color:var(--cream);
+  border:none;padding:1.1rem;cursor:pointer;
+  transition:all 0.25s;margin-top:0.5rem;
+}
+.form-submit:hover{background:var(--brown);}
+
+/* ── NEWSLETTER ── */
+.newsletter{
+  background:var(--brown);padding:4rem;
+  display:flex;align-items:center;justify-content:space-between;gap:3rem;
+  flex-wrap:wrap;
+}
+.newsletter-text .section-tag{color:var(--gold-light);}
+.newsletter-text .section-title{color:var(--cream);font-size:1.6rem;margin-bottom:0;}
+.newsletter-form-wrap{display:flex;gap:0;flex:1;max-width:500px;}
+.newsletter-input{
+  flex:1;background:rgba(246,239,224,0.1);border:1px solid rgba(246,239,224,0.2);
+  border-right:none;padding:0.9rem 1.25rem;
+  color:var(--cream);font-family:'Lora',serif;font-size:0.9rem;outline:none;
+}
+.newsletter-input::placeholder{color:rgba(246,239,224,0.45);}
+.newsletter-input:focus{border-color:var(--gold);}
+.newsletter-btn{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;
+  background:var(--gold);color:var(--brown);
+  border:none;padding:0.9rem 2rem;cursor:pointer;transition:background 0.2s;white-space:nowrap;
+}
+.newsletter-btn:hover{background:var(--gold-light);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--text);
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem;padding:5rem 4rem 4rem;
+}
+.footer-brand .nav-logo-name{color:var(--cream);font-size:1.5rem;}
+.footer-brand .nav-logo-sub{color:rgba(246,239,224,0.4);}
+.footer-brand{margin-bottom:0;}
+.footer-desc{font-size:0.82rem;line-height:1.8;color:rgba(246,239,224,0.5);margin-top:1rem;max-width:280px;}
+.footer-social{display:flex;gap:0.75rem;margin-top:1.5rem;}
+.social-link{
+  width:36px;height:36px;border:1px solid rgba(246,239,224,0.15);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(246,239,224,0.4);text-decoration:none;font-size:0.85rem;
+  transition:all 0.2s;cursor:pointer;
+}
+.social-link:hover{border-color:var(--gold);color:var(--gold);}
+.footer-col h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.7rem;}
+.footer-col a{
+  font-size:0.82rem;color:rgba(246,239,224,0.45);
+  text-decoration:none;transition:color 0.2s;cursor:pointer;
+}
+.footer-col a:hover{color:var(--cream);}
+.footer-bottom{
+  background:rgba(0,0,0,0.3);border-top:1px solid rgba(246,239,224,0.08);
+  padding:1.5rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-copy{font-size:0.75rem;color:rgba(246,239,224,0.3);letter-spacing:1px;}
+.footer-copy span{color:var(--gold);}
+.certifications{display:flex;gap:1rem;align-items:center;}
+.cert{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;
+  border:1px solid rgba(246,239,224,0.15);padding:0.3rem 0.75rem;
+  color:rgba(246,239,224,0.3);
+}
+
+/* ── FADE IN ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── CART NOTIFICATION ── */
+.toast{
+  position:fixed;bottom:2rem;right:2rem;z-index:9999;
+  background:var(--burgundy);color:var(--cream);
+  padding:1rem 1.5rem;border-left:4px solid var(--gold);
+  font-family:'Cormorant Garamond',serif;font-size:0.9rem;letter-spacing:1px;
+  transform:translateX(200%);transition:transform 0.4s ease;
+  pointer-events:none;
+}
+.toast.show{transform:translateX(0);}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast">🛒 Producto agregado al pedido</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="nav-logo-name">Casa Montoya</span>
+    <span class="nav-logo-sub">Embutidos Artesanales · Desde 1978</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#pedido">Pedido</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-tel">Llámanos: <span>+591 777 12345</span></span>
+    <a href="#pedido" class="btn-nav">Pedir Ahora</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-ornament"><span class="ornament-line"></span>Tradición y Sabor desde 1978<span class="ornament-line"></span></div>
+    <h1 class="hero-title">
+      El sabor que<br>
+      <em>nunca olvidas</em>
+    </h1>
+    <span class="hero-title-script">Crafted with love, cured with time.</span>
+    <p class="hero-desc">Embutidos artesanales elaborados con recetas familiares de más de 45 años. Sin conservantes artificiales, sin atajos — solo ingredientes seleccionados y el tiempo necesario para lograr la perfección.</p>
+    <div class="hero-actions">
+      <a href="#productos" class="btn-primary">Ver Catálogo</a>
+      <a href="#nosotros" class="btn-ghost">Nuestra Historia</a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge-item">
+        <span class="badge-num">45+</span>
+        <span class="badge-label">Años de tradición</span>
+      </div>
+      <div class="badge-item">
+        <span class="badge-num">100%</span>
+        <span class="badge-label">Artesanal</span>
+      </div>
+      <div class="badge-item">
+        <span class="badge-num">0</span>
+        <span class="badge-label">Conservantes</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-bg"></div>
+    <div class="hero-product-display">
+      <div class="hero-product-emoji">🥩</div>
+      <span class="hero-product-tag">Jamón Serrano Reserva</span>
+    </div>
+    <div class="hero-label">
+      <div class="hero-label-inner">★ CALIDAD ★ PREMIUM ★ ARTESANAL ★</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIPE -->
+<div class="stripe">
+  <div class="stripe-inner">
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Jamones Curados</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Chorizos Artesanales</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Salchichas Premium</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Morcillas Tradicionales</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Longanizas Ahumadas</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Cecinas Selectas</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Envío a Domicilio</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Jamones Curados</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Chorizos Artesanales</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Salchichas Premium</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Morcillas Tradicionales</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Longanizas Ahumadas</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Cecinas Selectas</span>
+    <span class="stripe-item"><span class="stripe-dot">✦</span> Envío a Domicilio</span>
+  </div>
+</div>
+
+<!-- NOSOTROS -->
+<section class="section about" id="nosotros">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-corner"></div>
+      <div class="about-img"><span>🐷</span></div>
+      <div class="about-corner2"></div>
+      <div class="about-floating">
+        <span class="about-floating-num">1978</span>
+        <span class="about-floating-text">Año de fundación</span>
+      </div>
+    </div>
+    <div class="about-text reveal" style="transition-delay:0.15s">
+      <span class="section-tag">✦ Nuestra Historia</span>
+      <h2 class="section-title">Una familia,<br><em>una pasión</em></h2>
+      <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+      <p class="section-desc" style="margin-bottom:1.5rem;">Don Alejandro Montoya comenzó en su pequeño taller de Santa Cruz con una receta heredada de su abuelo extremeño. Hoy, tres generaciones después, seguimos honrando esa tradición con los mismos métodos artesanales, pero con el cuidado de lo moderno.</p>
+      <p class="section-desc">Cada pieza que sale de nuestra casa lleva horas de trabajo, ingredientes locales seleccionados y el tiempo que la naturaleza manda. Porque la calidad no se apresura.</p>
+      <div class="about-values">
+        <div class="value-item">
+          <div class="value-title">🌿 Sin Aditivos</div>
+          <div class="value-desc">Solo ingredientes naturales, sal marina y especias tradicionales.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-title">⏳ Curación Lenta</div>
+          <div class="value-desc">Mínimo 12 meses de curación natural para sabor profundo.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-title">🏡 Receta Familiar</div>
+          <div class="value-desc">Transmitida de generación en generación desde 1978.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-title">📦 Envío Fresco</div>
+          <div class="value-desc">Envasado al vacío y envío express en cadena de frío.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section products" id="productos">
+  <div class="products-header">
+    <div>
+      <span class="section-tag">✦ Catálogo</span>
+      <h2 class="section-title">Nuestros <em>Productos</em></h2>
+    </div>
+    <a href="#pedido" class="btn-ghost">Hacer Pedido →</a>
+  </div>
+  <div class="product-tabs">
+    <button class="tab active" onclick="filterProducts('todos',this)">Todos</button>
+    <button class="tab" onclick="filterProducts('jamon',this)">Jamones</button>
+    <button class="tab" onclick="filterProducts('chorizo',this)">Chorizos</button>
+    <button class="tab" onclick="filterProducts('salchicha',this)">Salchichas</button>
+    <button class="tab" onclick="filterProducts('especial',this)">Especiales</button>
+  </div>
+  <div class="products-grid" id="productsGrid">
+
+    <div class="product-card reveal" data-cat="jamon">
+      <div class="product-badge-wrap"><span class="product-badge badge-destacado">⭐ Destacado</span></div>
+      <div class="product-img"><span>🍖</span></div>
+      <div class="product-body">
+        <div class="product-origin">España · Reserva 24 meses</div>
+        <div class="product-name">Jamón Serrano Gran Reserva</div>
+        <div class="product-desc">Curado 24 meses en bodega natural. Aroma intenso, sabor profundo y textura tersa. La joya de nuestra casa.</div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="product-price">Bs. 85</span>
+            <span class="product-unit">por 500g</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="chorizo" style="transition-delay:0.1s">
+      <div class="product-badge-wrap"><span class="product-badge badge-artesanal">Artesanal</span></div>
+      <div class="product-img"><span>🌭</span></div>
+      <div class="product-body">
+        <div class="product-origin">Receta Familiar · Curado</div>
+        <div class="product-name">Chorizo Ibérico de la Casa</div>
+        <div class="product-desc">Mezcla de pimentón dulce y picante, ajo fresco y especias secretas. Curación mínima de 3 meses en bodega.</div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="product-price">Bs. 45</span>
+            <span class="product-unit">por 400g</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="salchicha" style="transition-delay:0.2s">
+      <div class="product-badge-wrap"><span class="product-badge badge-nuevo">Nuevo</span></div>
+      <div class="product-img"><span>🥓</span></div>
+      <div class="product-body">
+        <div class="product-origin">Ahumado Natural · Roble</div>
+        <div class="product-name">Salchicha Ahumada al Roble</div>
+        <div class="product-desc">Ahumado lento de 8 horas sobre roble boliviano. Ideal para parrilla o cocido. Jugosa y aromática.</div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="product-price">Bs. 38</span>
+            <span class="product-unit">por 500g</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="especial">
+      <div class="product-badge-wrap"><span class="product-badge badge-artesanal">Artesanal</span></div>
+      <div class="product-img"><span>🥩</span></div>
+      <div class="product-body">
+        <div class="product-origin">Maduración 18 meses</div>
+        <div class="product-name">Cecina de Res Premium</div>
+        <div class="product-desc">Carne de res seleccionada, salada y secada al viento de montaña durante 18 meses. Sabor incomparable.</div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="product-price">Bs. 70</span>
+            <span class="product-unit">por 300g</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="chorizo" style="transition-delay:0.1s">
+      <div class="product-badge-wrap"><span class="product-badge badge-destacado">⭐ Destacado</span></div>
+      <div class="product-img"><span>🌶️</span></div>
+      <div class="product-body">
+        <div class="product-origin">Receta Criolla · Picante</div>
+        <div class="product-name">Longaniza Criolla Picante</div>
+        <div class="product-desc">Embutido tradicional boliviano con ají amarillo, comino y hierbas del oriente. El favorito de la región.</div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="product-price">Bs. 35</span>
+            <span class="product-unit">por 500g</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="especial" style="transition-delay:0.2s">
+      <div class="product-badge-wrap"><span class="product-badge badge-nuevo">Especial</span></div>
+      <div class="product-img"><span>🎁</span></div>
+      <div class="product-body">
+        <div class="product-origin">Selección Curada · Pack</div>
+        <div class="product-name">Tabla Gourmet de la Casa</div>
+        <div class="product-desc">Pack seleccionado con jamón reserva, chorizo ibérico, longaniza y cecina. Perfecto para regalar o celebrar.</div>
+        <div class="product-footer">
+          <div class="product-price-wrap">
+            <span class="product-price">Bs. 195</span>
+            <span class="product-unit">pack surtido</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(this)">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="process" id="proceso">
+  <span class="section-tag">✦ Nuestro Método</span>
+  <h2 class="section-title">El Arte de <em style="color:var(--gold-light)">Curar</em></h2>
+  <div class="process-grid">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <span class="step-icon">🐷</span>
+      <div class="step-title">Selección de Materia Prima</div>
+      <div class="step-desc">Trabajamos con criadores locales comprometidos con el bienestar animal y alimentación natural. Solo las mejores piezas pasan.</div>
+    </div>
+    <div class="step reveal" style="transition-delay:0.1s">
+      <div class="step-num">02</div>
+      <span class="step-icon">🧂</span>
+      <div class="step-title">Salazón Tradicional</div>
+      <div class="step-desc">Cubrimos cada pieza con sal marina gruesa y especias naturales. Reposamos entre 1 y 2 días por kilo de carne en cámaras frías.</div>
+    </div>
+    <div class="step reveal" style="transition-delay:0.2s">
+      <div class="step-num">03</div>
+      <span class="step-icon">🌬️</span>
+      <div class="step-title">Secado y Maduración</div>
+      <div class="step-desc">Las piezas pasan a secaderos naturales con ventilación controlada. La paciencia es el ingrediente principal — mínimo 12 meses.</div>
+    </div>
+    <div class="step reveal" style="transition-delay:0.3s">
+      <div class="step-num">04</div>
+      <span class="step-icon">✅</span>
+      <div class="step-title">Control y Despacho</div>
+      <div class="step-desc">Cada producto es revisado a mano antes de envasarse al vacío y despacharse en cadena de frío hasta tu puerta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <span class="section-tag">✦ Lo que dicen</span>
+    <h2 class="section-title">Clientes que <em>confían</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">El jamón serrano es una experiencia. Nunca pensé que en Bolivia podría tener algo de esta calidad. Ya llevo 3 pedidos y mi familia lo adora. Sin palabras.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div>
+          <span class="testi-name">Patricia Vargas</span>
+          <span class="testi-city">Santa Cruz de la Sierra</span>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.1s">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Compré la Tabla Gourmet para el cumpleaños de mi suegro y fue el regalo perfecto. Presentación impecable, sabor excepcional. Lo recomiendo sin dudarlo.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👨</div>
+        <div>
+          <span class="testi-name">Rodrigo Suárez</span>
+          <span class="testi-city">Cochabamba</span>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.2s">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">La longaniza criolla es adictiva. La uso en mis asados y todos preguntan de dónde la saco. El envío llegó perfecto, fresco y bien empacado. 100% recomendado.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">👨‍🍳</div>
+        <div>
+          <span class="testi-name">Marco Ríos</span>
+          <span class="testi-city">La Paz</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEDIDO / CTA -->
+<section class="cta" id="pedido">
+  <div class="cta-visual reveal">🛒</div>
+  <div class="cta-form reveal" style="transition-delay:0.15s">
+    <div class="form-title">Haz tu Pedido</div>
+    <p class="form-sub">Completa el formulario y te contactamos en menos de 2 horas para coordinar tu entrega.</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Nombre</label>
+        <input class="form-input" type="text" placeholder="Tu nombre">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Teléfono / WhatsApp</label>
+        <input class="form-input" type="tel" placeholder="+591 7XX XXXXX">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Ciudad</label>
+      <select class="form-select">
+        <option>Santa Cruz de la Sierra</option>
+        <option>La Paz</option>
+        <option>Cochabamba</option>
+        <option>Sucre</option>
+        <option>Potosí</option>
+        <option>Otra ciudad</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Productos que deseas</label>
+      <textarea class="form-textarea" placeholder="Ej: 1 kg de jamón serrano, 500g chorizo ibérico, tabla gourmet..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">¿Cómo prefieres que te contactemos?</label>
+      <select class="form-select">
+        <option>WhatsApp</option>
+        <option>Llamada telefónica</option>
+        <option>Email</option>
+      </select>
+    </div>
+    <button class="form-submit" onclick="submitForm(this)">Enviar Pedido ✦</button>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="newsletter-text">
+    <span class="section-tag">✦ Mantente al día</span>
+    <h3 class="section-title">Recibe nuestras <em style="color:var(--gold-light);font-style:italic;">ofertas exclusivas</em></h3>
+  </div>
+  <div class="newsletter-form-wrap">
+    <input class="newsletter-input" type="email" placeholder="tu@correo.com">
+    <button class="newsletter-btn">Suscribirme</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="nav-logo">
+      <span class="nav-logo-name">Casa Montoya</span>
+      <span class="nav-logo-sub">Embutidos Artesanales</span>
+    </div>
+    <p class="footer-desc">Tres generaciones elaborando embutidos con recetas familiares, ingredientes naturales y el tiempo que la tradición exige.</p>
+    <div class="footer-social">
+      <span class="social-link">ig</span>
+      <span class="social-link">fb</span>
+      <span class="social-link">wa</span>
+      <span class="social-link">yt</span>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Productos</h4>
+    <ul>
+      <li><a href="#">Jamones Curados</a></li>
+      <li><a href="#">Chorizos</a></li>
+      <li><a href="#">Salchichas</a></li>
+      <li><a href="#">Longanizas</a></li>
+      <li><a href="#">Cecinas</a></li>
+      <li><a href="#">Tablas Gourmet</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Empresa</h4>
+    <ul>
+      <li><a href="#">Nuestra Historia</a></li>
+      <li><a href="#">Proceso Artesanal</a></li>
+      <li><a href="#">Criadores Aliados</a></li>
+      <li><a href="#">Blog de Recetas</a></li>
+      <li><a href="#">Distribuidores</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contacto</h4>
+    <ul>
+      <li><a href="#">📍 Santa Cruz, Bolivia</a></li>
+      <li><a href="#">📞 +591 777 12345</a></li>
+      <li><a href="#">✉️ pedidos@casamontoya.bo</a></li>
+      <li><a href="#">⏰ Lun–Sáb: 7:00 – 18:00</a></li>
+      <li><a href="#">WhatsApp directo</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">© 2026 <span>Casa Montoya</span>. Todos los derechos reservados.</span>
+  <div class="certifications">
+    <span class="cert">100% Natural</span>
+    <span class="cert">Sin Conservantes</span>
+    <span class="cert">Entrega en Frío</span>
+  </div>
+</div>
+
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Product filter
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    if(cat === 'todos' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Add to cart
+function addToCart(btn) {
+  const orig = btn.textContent;
+  btn.textContent = '✓ Agregado';
+  btn.style.background = 'var(--burgundy)';
+  btn.style.color = 'var(--cream)';
+  btn.style.borderColor = 'var(--burgundy)';
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.background = '';
+    btn.style.color = '';
+    btn.style.borderColor = '';
+  }, 1800);
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// Submit form
+function submitForm(btn) {
+  const orig = btn.textContent;
+  btn.textContent = '✓ Pedido enviado — Te contactamos pronto';
+  btn.style.background = '#2d6a2d';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
+}
+
+// Rotating hero label
+const label = document.querySelector('.hero-label');
+if(label) {
+  let angle = 0;
+  setInterval(() => {
+    angle += 0.3;
+    label.style.transform = `rotate(${angle}deg)`;
+    label.querySelector('.hero-label-inner').style.transform = `rotate(-${angle}deg)`;
+  }, 16);
+}
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if(window.scrollY > 60) nav.style.background = 'rgba(246,239,224,0.97)';
+  else nav.style.background = 'rgba(246,239,224,0.92)';
+});
+
+// Newsletter
+document.querySelector('.newsletter-btn').addEventListener('click', function() {
+  const input = document.querySelector('.newsletter-input');
+  if(input.value.includes('@')) {
+    const orig = this.textContent;
+    this.textContent = '✓ Suscrito';
+    input.value = '';
+    setTimeout(() => this.textContent = orig, 2500);
+  } else {
+    input.style.borderColor = 'var(--wine)';
+    setTimeout(() => input.style.borderColor = '', 1500);
+  }
+});
+</script>
+</body>
+</html>
